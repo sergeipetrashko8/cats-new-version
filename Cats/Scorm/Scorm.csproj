@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="ADL">
+      <HintPath>..\Libraries\Adl\ADL.dll</HintPath>
+    </Reference>
+    <Reference Include="ADL.SCORM">
+      <HintPath>..\Libraries\Adl\ADL.SCORM.dll</HintPath>
+    </Reference>
+    <Reference Include="ADL.Xml">
+      <HintPath>..\Libraries\Adl\ADL.Xml.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>
