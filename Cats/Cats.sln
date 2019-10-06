@@ -5,7 +5,9 @@ VisualStudioVersion = 16.0.29326.143
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csproj", "{9EDCB9D3-7542-44E9-80F3-B242D7E2E729}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scorm", "Scorm\Scorm.csproj", "{AD5BD44D-9C0E-4C6B-82EF-5A244ACCF5CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorm", "Scorm\Scorm.csproj", "{AD5BD44D-9C0E-4C6B-82EF-5A244ACCF5CD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Core", "Application.Core\Application.Core.csproj", "{2EB82CE2-ED8E-4195-B644-C98B3A42F348}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{AD5BD44D-9C0E-4C6B-82EF-5A244ACCF5CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AD5BD44D-9C0E-4C6B-82EF-5A244ACCF5CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AD5BD44D-9C0E-4C6B-82EF-5A244ACCF5CD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2EB82CE2-ED8E-4195-B644-C98B3A42F348}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2EB82CE2-ED8E-4195-B644-C98B3A42F348}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2EB82CE2-ED8E-4195-B644-C98B3A42F348}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2EB82CE2-ED8E-4195-B644-C98B3A42F348}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
