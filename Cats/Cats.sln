@@ -7,13 +7,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebAPI", "WebAPI\WebAPI.csp
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Scorm", "Scorm\Scorm.csproj", "{AD5BD44D-9C0E-4C6B-82EF-5A244ACCF5CD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Core", "Application.Core\Application.Core.csproj", "{2EB82CE2-ED8E-4195-B644-C98B3A42F348}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Core", "Application.Core\Application.Core.csproj", "{2EB82CE2-ED8E-4195-B644-C98B3A42F348}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application.Core.UI", "Application.Core.UI\Application.Core.UI.csproj", "{5F0BEF5B-88A3-45E6-916D-506D29D45EA6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application.Core.UI", "Application.Core.UI\Application.Core.UI.csproj", "{5F0BEF5B-88A3-45E6-916D-506D29D45EA6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMP.Models", "LMP.Models\LMP.Models.csproj", "{102A166E-3907-4DEF-B812-DF729E01A14D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMP.Models", "LMP.Models\LMP.Models.csproj", "{102A166E-3907-4DEF-B812-DF729E01A14D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LMP.Data", "LMP.Data\LMP.Data.csproj", "{8148592F-1D38-4538-BBEA-A5324D6080B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LMP.Data", "LMP.Data\LMP.Data.csproj", "{8148592F-1D38-4538-BBEA-A5324D6080B4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{827FD457-B41E-4F1A-B97F-8F3D537A4DE0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{8148592F-1D38-4538-BBEA-A5324D6080B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8148592F-1D38-4538-BBEA-A5324D6080B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8148592F-1D38-4538-BBEA-A5324D6080B4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{827FD457-B41E-4F1A-B97F-8F3D537A4DE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{827FD457-B41E-4F1A-B97F-8F3D537A4DE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{827FD457-B41E-4F1A-B97F-8F3D537A4DE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{827FD457-B41E-4F1A-B97F-8F3D537A4DE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
