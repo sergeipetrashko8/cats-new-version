@@ -15,21 +15,17 @@ namespace LMP.Data.Repositories
 
         public void Create(WatchingTime watchingTime)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                context.WatchingTime.Add(watchingTime);
-            }
+            using var context = new LmPlatformModelsContext();
+            context.WatchingTime.Add(watchingTime);
         }
 
         public WatchingTime GetByUserConceptIds(int UserId, int conceptId)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var watchingTime = context.Set<WatchingTime>()
-                    .FirstOrDefault(e => (e.UserId == UserId) & (e.ConceptId == conceptId));
-                //var watchingTime = context.Set<WatchingTime>().FirstOrDefault(e => e.UserId == UserId & e.Concept.Id == conceptId);
-                return watchingTime;
-            }
+            using var context = new LmPlatformModelsContext();
+            var watchingTime = context.Set<WatchingTime>()
+                .FirstOrDefault(e => (e.UserId == UserId) & (e.ConceptId == conceptId));
+            //var watchingTime = context.Set<WatchingTime>().FirstOrDefault(e => e.UserId == UserId & e.Concept.Id == conceptId);
+            return watchingTime;
         }
     }
 }

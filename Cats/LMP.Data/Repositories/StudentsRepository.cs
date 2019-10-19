@@ -17,38 +17,30 @@ namespace LMP.Data.Repositories
 
         public Student GetStudent(int id)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var student = context.Set<Student>().Include(e => e.Group).FirstOrDefault(e => e.Id == id);
-                return student;
-            }
+            using var context = new LmPlatformModelsContext();
+            var student = context.Set<Student>().Include(e => e.Group).FirstOrDefault(e => e.Id == id);
+            return student;
         }
 
         public List<Student> GetStudents(int groupId)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var students = context.Set<Student>().Include(e => e.Group).Where(e => e.GroupId == groupId).ToList();
-                return students;
-            }
+            using var context = new LmPlatformModelsContext();
+            var students = context.Set<Student>().Include(e => e.Group).Where(e => e.GroupId == groupId).ToList();
+            return students;
         }
 
         public List<Student> GetStudents()
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var students = context.Set<Student>().Include(e => e.Group).ToList();
-                return students;
-            }
+            using var context = new LmPlatformModelsContext();
+            var students = context.Set<Student>().Include(e => e.Group).ToList();
+            return students;
         }
 
         public void SaveStudent(Student student)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                context.Set<Student>().Add(student);
-                context.SaveChanges();
-            }
+            using var context = new LmPlatformModelsContext();
+            context.Set<Student>().Add(student);
+            context.SaveChanges();
         }
     }
 }

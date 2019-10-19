@@ -14,13 +14,12 @@ namespace LMP.Data.Repositories
 
         public void DeleteProjectUser(ProjectUser projectUser)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var model = context.Set<ProjectUser>().FirstOrDefault(e => e.Id == projectUser.Id);
-                context.Delete(model);
+            using var context = new LmPlatformModelsContext();
+            
+            var model = context.Set<ProjectUser>().FirstOrDefault(e => e.Id == projectUser.Id);
+            context.Delete(model);
 
-                context.SaveChanges();
-            }
+            context.SaveChanges();
         }
     }
 }

@@ -128,12 +128,13 @@ namespace LMP.Data.Repositories
                     {
                         var msg = GetBy(new Query<Message>(m => m.Id == messageId).Include(m => m.Attachments));
                         if (msg.Attachments.Any())
-                            using (var repositoriesContainer = new LmPlatformRepositoriesContainer())
-                            {
-                                repositoriesContainer.AttachmentRepository.Delete(msg.Attachments);
-                                repositoriesContainer.MessageRepository.Delete(msg);
-                                repositoriesContainer.ApplyChanges();
-                            }
+                        {
+                            using var repositoriesContainer = new LmPlatformRepositoriesContainer();
+                            
+                            repositoriesContainer.AttachmentRepository.Delete(msg.Attachments);
+                            repositoriesContainer.MessageRepository.Delete(msg);
+                            repositoriesContainer.ApplyChanges();
+                        }
                     }
                 }
             }

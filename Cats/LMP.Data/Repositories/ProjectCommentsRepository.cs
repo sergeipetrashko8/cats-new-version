@@ -16,23 +16,21 @@ namespace LMP.Data.Repositories
 
         public void DeleteComment(ProjectComment comment)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var model = context.Set<ProjectComment>().FirstOrDefault(e => e.Id == comment.Id);
-                context.Delete(model);
+            using var context = new LmPlatformModelsContext();
+            
+            var model = context.Set<ProjectComment>().FirstOrDefault(e => e.Id == comment.Id);
+            context.Delete(model);
 
-                context.SaveChanges();
-            }
+            context.SaveChanges();
         }
 
         public List<ProjectComment> GetProjectComments(int projectId)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                return context.Set<ProjectComment>()
-                    .Where(e => e.ProjectId == projectId)
-                    .ToList();
-            }
+            using var context = new LmPlatformModelsContext();
+            
+            return context.Set<ProjectComment>()
+                .Where(e => e.ProjectId == projectId)
+                .ToList();
         }
     }
 }

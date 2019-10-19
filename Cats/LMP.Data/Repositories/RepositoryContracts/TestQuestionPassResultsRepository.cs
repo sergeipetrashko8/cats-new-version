@@ -13,10 +13,9 @@ namespace LMP.Data.Repositories.RepositoryContracts
 
         public void Create(TestQuestionPassResults item)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                context.TestQuestionPassResults.Add(item);
-            }
+            using var context = new LmPlatformModelsContext();
+
+            context.TestQuestionPassResults.Add(item);
         }
     }
 }

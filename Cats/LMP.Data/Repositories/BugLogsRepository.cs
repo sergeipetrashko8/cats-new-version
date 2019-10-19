@@ -14,13 +14,12 @@ namespace LMP.Data.Repositories
 
         public void DeleteBugLog(BugLog bugLog)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var model = context.Set<BugLog>().FirstOrDefault(e => e.Id == bugLog.Id);
-                context.Delete(model);
+            using var context = new LmPlatformModelsContext();
 
-                context.SaveChanges();
-            }
+            var model = context.Set<BugLog>().FirstOrDefault(e => e.Id == bugLog.Id);
+            context.Delete(model);
+
+            context.SaveChanges();
         }
     }
 }

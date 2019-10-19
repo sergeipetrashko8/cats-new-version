@@ -17,48 +17,42 @@ namespace LMP.Data.Repositories
         public List<Bug> GetUserBugs(int userId, int limit, int offset, string searchString, string sortedPropertyName,
             bool desc = false)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var query = GetUserBugsQuery(context, userId, searchString);
-                return GetPagebleSortedBugs(query, sortedPropertyName, desc, limit, offset);
-            }
+            using var context = new LmPlatformModelsContext();
+
+            var query = GetUserBugsQuery(context, userId, searchString);
+            return GetPagebleSortedBugs(query, sortedPropertyName, desc, limit, offset);
         }
 
         public int GetUserBugsCount(int userId, string searchString)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                return GetUserBugsQuery(context, userId, searchString).Count();
-            }
+            using var context = new LmPlatformModelsContext();
+
+            return GetUserBugsQuery(context, userId, searchString).Count();
         }
 
         public List<Bug> GetProjectBugs(int projectId, int limit, int offset, string searchString,
             string sortedPropertyName, bool desc = false)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var query = GetProjectBugsQuery(context, projectId, searchString);
-                return GetPagebleSortedBugs(query, sortedPropertyName, desc, limit, offset);
-            }
+            using var context = new LmPlatformModelsContext();
+
+            var query = GetProjectBugsQuery(context, projectId, searchString);
+            return GetPagebleSortedBugs(query, sortedPropertyName, desc, limit, offset);
         }
 
         public int GetProjectBugsCount(int projectId, string searchString)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                return GetProjectBugsQuery(context, projectId, searchString).Count();
-            }
+            using var context = new LmPlatformModelsContext();
+            
+            return GetProjectBugsQuery(context, projectId, searchString).Count();
         }
 
         public void DeleteBug(Bug bug)
         {
-            using (var context = new LmPlatformModelsContext())
-            {
-                var model = context.Set<Bug>().FirstOrDefault(e => e.Id == bug.Id);
-                context.Delete(model);
+            using var context = new LmPlatformModelsContext();
+            var model = context.Set<Bug>().FirstOrDefault(e => e.Id == bug.Id);
+            context.Delete(model);
 
-                context.SaveChanges();
-            }
+            context.SaveChanges();
         }
 
         public Bug SaveBug(Bug bug)
@@ -104,39 +98,15 @@ namespace LMP.Data.Repositories
 
         private IQueryable<Bug> GetSortedBugsQuery(IQueryable<Bug> query, string sortingPropertyName, bool desc)
         {
-            switch (sortingPropertyName)
+            return sortingPropertyName switch
             {
-                case "Id":
-                    if (desc)
-                        return query.OrderByDescending(e => e.Id);
-                    else
-                        return query.OrderBy(e => e.Id);
-                case "Summary":
-                    if (desc)
-                        return query.OrderByDescending(e => e.Summary);
-                    else
-                        return query.OrderBy(e => e.Summary);
-                case "ProjectTitle":
-                    if (desc)
-                        return query.OrderByDescending(e => e.Project.Title);
-                    else
-                        return query.OrderBy(e => e.Project.Title);
-                case "Severity":
-                    if (desc)
-                        return query.OrderByDescending(e => e.Severity.Name);
-                    else
-                        return query.OrderBy(e => e.Project.Title);
-                case "Status":
-                    if (desc)
-                        return query.OrderByDescending(e => e.Status.Name);
-                    else
-                        return query.OrderBy(e => e.Status.Name);
-                default:
-                    if (desc)
-                        return query.OrderByDescending(e => e.ModifyingDate);
-                    else
-                        return query.OrderBy(e => e.ModifyingDate);
-            }
+                "Id" => desc ? query.OrderByDescending(e => e.Id) : query.OrderBy(e => e.Id),
+                "Summary" => desc ? query.OrderByDescending(e => e.Summary) : query.OrderBy(e => e.Summary),
+                "ProjectTitle" => desc ? query.OrderByDescending(e => e.Project.Title) : query.OrderBy(e => e.Project.Title),
+                "Severity" => desc ? query.OrderByDescending(e => e.Severity.Name) : query.OrderBy(e => e.Project.Title),
+                "Status" => desc ? query.OrderByDescending(e => e.Status.Name) : query.OrderBy(e => e.Status.Name),
+                _ => desc ? query.OrderByDescending(e => e.ModifyingDate) : query.OrderBy(e => e.ModifyingDate),
+            };
         }
     }
 }

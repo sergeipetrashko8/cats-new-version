@@ -38,54 +38,53 @@ namespace LMP.Data.Repositories
                 var secondSubGorupStudent = modelSecondSubGroup.SubjectStudents.ToList();
                 var thirdSubGorupStudent = modelThirdSubGroup.SubjectStudents.ToList();
 
-                using (var context = new LmPlatformModelsContext())
-                {
-                    foreach (var subjectStudent in firstSubGorupStudent)
-                        if (!firstInts.Any(e => e == subjectStudent.StudentId))
-                            context.Set<SubjectStudent>().Remove(context.Set<SubjectStudent>()
-                                .FirstOrDefault(e => e.Id == subjectStudent.Id));
+                using var context = new LmPlatformModelsContext();
 
-                    foreach (var subjectStudent in secondSubGorupStudent)
-                        if (!secoInts.Any(e => e == subjectStudent.StudentId))
-                            context.Set<SubjectStudent>().Remove(context.Set<SubjectStudent>()
-                                .FirstOrDefault(e => e.Id == subjectStudent.Id));
+                foreach (var subjectStudent in firstSubGorupStudent)
+                    if (firstInts.All(e => e != subjectStudent.StudentId))
+                        context.Set<SubjectStudent>().Remove(context.Set<SubjectStudent>()
+                            .FirstOrDefault(e => e.Id == subjectStudent.Id));
 
-                    foreach (var subjectStudent in thirdSubGorupStudent)
-                        if (!thirdInts.Any(e => e == subjectStudent.StudentId))
-                            context.Set<SubjectStudent>().Remove(context.Set<SubjectStudent>()
-                                .FirstOrDefault(e => e.Id == subjectStudent.Id));
+                foreach (var subjectStudent in secondSubGorupStudent)
+                    if (secoInts.All(e => e != subjectStudent.StudentId))
+                        context.Set<SubjectStudent>().Remove(context.Set<SubjectStudent>()
+                            .FirstOrDefault(e => e.Id == subjectStudent.Id));
 
-                    context.SaveChanges();
+                foreach (var subjectStudent in thirdSubGorupStudent)
+                    if (thirdInts.All(e => e != subjectStudent.StudentId))
+                        context.Set<SubjectStudent>().Remove(context.Set<SubjectStudent>()
+                            .FirstOrDefault(e => e.Id == subjectStudent.Id));
 
-                    foreach (var student in firstInts)
-                        if (!firstSubGorupStudent.Any(e => e.StudentId == student))
-                            context.Set<SubjectStudent>().Add(new SubjectStudent
-                            {
-                                StudentId = student,
-                                SubGroupId = modelFirstSubGroup.Id,
-                                SubjectGroupId = subjectGroupId
-                            });
+                context.SaveChanges();
 
-                    foreach (var student in secoInts)
-                        if (!secondSubGorupStudent.Any(e => e.StudentId == student))
-                            context.Set<SubjectStudent>().Add(new SubjectStudent
-                            {
-                                StudentId = student,
-                                SubGroupId = modelSecondSubGroup.Id,
-                                SubjectGroupId = subjectGroupId
-                            });
+                foreach (var student in firstInts)
+                    if (firstSubGorupStudent.All(e => e.StudentId != student))
+                        context.Set<SubjectStudent>().Add(new SubjectStudent
+                        {
+                            StudentId = student,
+                            SubGroupId = modelFirstSubGroup.Id,
+                            SubjectGroupId = subjectGroupId
+                        });
 
-                    foreach (var student in thirdInts)
-                        if (!thirdSubGorupStudent.Any(e => e.StudentId == student))
-                            context.Set<SubjectStudent>().Add(new SubjectStudent
-                            {
-                                StudentId = student,
-                                SubGroupId = modelThirdSubGroup.Id,
-                                SubjectGroupId = subjectGroupId
-                            });
+                foreach (var student in secoInts)
+                    if (secondSubGorupStudent.All(e => e.StudentId != student))
+                        context.Set<SubjectStudent>().Add(new SubjectStudent
+                        {
+                            StudentId = student,
+                            SubGroupId = modelSecondSubGroup.Id,
+                            SubjectGroupId = subjectGroupId
+                        });
 
-                    context.SaveChanges();
-                }
+                foreach (var student in thirdInts)
+                    if (thirdSubGorupStudent.All(e => e.StudentId != student))
+                        context.Set<SubjectStudent>().Add(new SubjectStudent
+                        {
+                            StudentId = student,
+                            SubGroupId = modelThirdSubGroup.Id,
+                            SubjectGroupId = subjectGroupId
+                        });
+
+                context.SaveChanges();
             }
             catch (Exception ex)
             {
@@ -113,40 +112,38 @@ namespace LMP.Data.Repositories
                 SubjectGroupId = subjectGroupId
             };
 
-            using (var context = new LmPlatformModelsContext())
-            {
-                Save(modelFirstSubGroup);
-                Save(modelSecondSubGroup);
-                Save(modelThirdSubGroup);
+            using var context = new LmPlatformModelsContext();
+            Save(modelFirstSubGroup);
+            Save(modelSecondSubGroup);
+            Save(modelThirdSubGroup);
 
-                DataContext.SaveChanges();
+            DataContext.SaveChanges();
 
-                foreach (var firstInt in firstInts)
-                    context.Set<SubjectStudent>().Add(new SubjectStudent
-                    {
-                        StudentId = firstInt,
-                        SubGroupId = modelFirstSubGroup.Id,
-                        SubjectGroupId = subjectGroupId
-                    });
+            foreach (var firstInt in firstInts)
+                context.Set<SubjectStudent>().Add(new SubjectStudent
+                {
+                    StudentId = firstInt,
+                    SubGroupId = modelFirstSubGroup.Id,
+                    SubjectGroupId = subjectGroupId
+                });
 
-                foreach (var secoInt in secoInts)
-                    context.Set<SubjectStudent>().Add(new SubjectStudent
-                    {
-                        StudentId = secoInt,
-                        SubGroupId = modelSecondSubGroup.Id,
-                        SubjectGroupId = subjectGroupId
-                    });
+            foreach (var secoInt in secoInts)
+                context.Set<SubjectStudent>().Add(new SubjectStudent
+                {
+                    StudentId = secoInt,
+                    SubGroupId = modelSecondSubGroup.Id,
+                    SubjectGroupId = subjectGroupId
+                });
 
-                foreach (var third in thirdInts)
-                    context.Set<SubjectStudent>().Add(new SubjectStudent
-                    {
-                        StudentId = third,
-                        SubGroupId = modelThirdSubGroup.Id,
-                        SubjectGroupId = subjectGroupId
-                    });
+            foreach (var third in thirdInts)
+                context.Set<SubjectStudent>().Add(new SubjectStudent
+                {
+                    StudentId = third,
+                    SubGroupId = modelThirdSubGroup.Id,
+                    SubjectGroupId = subjectGroupId
+                });
 
-                context.SaveChanges();
-            }
+            context.SaveChanges();
         }
     }
 }
