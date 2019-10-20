@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Application.Core\Application.Core.csproj" />
+    <ProjectReference Include="..\Application.SearchEngine\Application.SearchEngine.csproj" />
     <ProjectReference Include="..\LMP.Data\LMP.Data.csproj" />
     <ProjectReference Include="..\LMP.Models\LMP.Models.csproj" />
   </ItemGroup>

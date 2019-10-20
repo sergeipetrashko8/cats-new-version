@@ -5,6 +5,7 @@ using System.Linq.Expressions;
 using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.UserManagement;
+using Application.SearchEngine.SearchMethods;
 using LMP.Data;
 using LMP.Models;
 
@@ -124,7 +125,7 @@ namespace Application.Infrastructure.LecturerManagement
                 repositoriesContainer.ApplyChanges();
             }
 
-            // todo # new LecturerSearchMethod().UpdateIndex(lecturer);
+            new LecturerSearchMethod().UpdateIndex(lecturer);
             return lecturer;
         }
 
@@ -142,7 +143,7 @@ namespace Application.Infrastructure.LecturerManagement
                     repositoriesContainer.LecturerRepository.DeleteLecturer(lecturer);
             }
 
-            // todo # new LecturerSearchMethod().DeleteIndex(id);
+            new LecturerSearchMethod().DeleteIndex(id);
             return true; //UserManagementService.DeleteUser(id);
         }
 

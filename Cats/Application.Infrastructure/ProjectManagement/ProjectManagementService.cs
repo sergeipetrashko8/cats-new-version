@@ -6,6 +6,7 @@ using Application.Core.Data;
 using Application.Infrastructure.BugManagement;
 using Application.Infrastructure.FilesManagement;
 using Application.Infrastructure.UserManagement;
+using Application.SearchEngine.SearchMethods;
 using LMP.Data;
 using LMP.Models;
 using LMP.Models.BTS;
@@ -206,7 +207,7 @@ namespace Application.Infrastructure.ProjectManagement
                 repositoriesContainer.ApplyChanges();
             }
 
-            // todo # new ProjectSearchMethod().AddToIndex(project);
+            new ProjectSearchMethod().AddToIndex(project);
             return project;
         }
 
@@ -229,7 +230,7 @@ namespace Application.Infrastructure.ProjectManagement
                 repositoriesContainer.ApplyChanges();
             }
 
-            // todo # new ProjectSearchMethod().UpdateIndex(project);
+            new ProjectSearchMethod().UpdateIndex(project);
         }
 
         public void DeleteProject(int projectId)
@@ -243,7 +244,7 @@ namespace Application.Infrastructure.ProjectManagement
                 repositoriesContainer.ApplyChanges();
             }
 
-            //todo # new ProjectSearchMethod().DeleteIndex(projectId);
+            new ProjectSearchMethod().DeleteIndex(projectId);
         }
 
         public void ClearProject(int projectId)

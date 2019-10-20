@@ -3,6 +3,7 @@ using System.Linq;
 using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.UserManagement;
+using Application.SearchEngine.SearchMethods;
 using LMP.Data;
 using LMP.Models;
 
@@ -85,14 +86,14 @@ namespace Application.Infrastructure.StudentManagement
             user.Email = student.User.Email;
             repositoriesContainer.UsersRepository.Save(user);
             repositoriesContainer.ApplyChanges();
-            //todo # new StudentSearchMethod().UpdateIndex(student);
+            new StudentSearchMethod().UpdateIndex(student);
 
             UpdateSubGroup(repositoriesContainer, student);
         }
 
         public bool DeleteStudent(int id)
         {
-            //todo # new StudentSearchMethod().DeleteIndex(id);
+            new StudentSearchMethod().DeleteIndex(id);
             return UserManagementService.DeleteUser(id);
         }
 
