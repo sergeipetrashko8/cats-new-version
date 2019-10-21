@@ -25,6 +25,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\FromMvc\" />
+    <Folder Include="Attributes\" />
   </ItemGroup>
 
 </Project>
