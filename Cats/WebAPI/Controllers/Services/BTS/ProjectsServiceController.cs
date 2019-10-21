@@ -10,8 +10,7 @@ using WebAPI.Controllers.Services.Models.BTS;
 namespace WebAPI.Controllers.Services.BTS
 {
     [Authorize(Roles = "student,lector")]
-    [Route("api/[controller]")]
-    public class ProjectsServiceController : ControllerBase
+    public class ProjectsServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IProjectManagementService> projectManagementService =
             new LazyDependency<IProjectManagementService>();

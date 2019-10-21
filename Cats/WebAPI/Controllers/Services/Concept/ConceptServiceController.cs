@@ -17,8 +17,7 @@ using WebAPI.Controllers.Services.Models.Parental;
 
 namespace WebAPI.Controllers.Services.Concept
 {
-    [Route("api/[controller]")]
-    public class ConceptServiceController : ControllerBase
+    public class ConceptServiceController : ApiRoutedController
     {
         private const string SuccessMessage = "Операция выполнена успешно";
 
