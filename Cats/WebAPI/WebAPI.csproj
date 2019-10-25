@@ -20,13 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Controllers\FromApi\LabsController.cs" />
-    <Compile Remove="Controllers\FromApi\NewsController.cs" />
-    <Compile Remove="Controllers\FromApi\UploadController.cs" />
-    <Compile Remove="Controllers\FromApi\WatchingTimeController.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Compile Include="Controllers\FromApi\CP\CourseProjectAssignmentController.cs" />
     <Compile Include="Controllers\FromApi\CP\CourseProjectConsultationController.cs" />
     <Compile Include="Controllers\FromApi\CP\CourseProjectConsultationDateController.cs" />
