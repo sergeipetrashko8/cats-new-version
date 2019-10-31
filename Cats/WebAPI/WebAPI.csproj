@@ -1,10 +1,56 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Controllers\FromApi\CP\**" />
+    <Compile Remove="Controllers\FromMvc\**" />
+    <Compile Remove="Controllers\Obsolete_Services\**" />
+    <Content Remove="Controllers\FromApi\CP\**" />
+    <Content Remove="Controllers\FromMvc\**" />
+    <Content Remove="Controllers\Obsolete_Services\**" />
+    <EmbeddedResource Remove="Controllers\FromApi\CP\**" />
+    <EmbeddedResource Remove="Controllers\FromMvc\**" />
+    <EmbeddedResource Remove="Controllers\Obsolete_Services\**" />
+    <None Remove="Controllers\FromApi\CP\**" />
+    <None Remove="Controllers\FromMvc\**" />
+    <None Remove="Controllers\Obsolete_Services\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="Controllers\FromApi\CP\CourseProjectAssignmentController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseProjectConsultationController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseProjectConsultationDateController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseProjectController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseProjectGroupController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseProjectNewsController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseProjectSubjectController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseStudentController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseStudentMarkController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CourseUserController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CpCorrelationController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CpPercentageController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CpPercentageResultController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CpTaskSheetController.cs" />
+    <Compile Include="Controllers\FromApi\CP\CpTaskSheetTemplateController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Quartz" Version="3.0.7" />
+    <PackageReference Include="Unity" Version="5.11.1" />
+    <PackageReference Include="Unity.ServiceLocation" Version="5.11.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Core.UI\Application.Core.UI.csproj" />
+    <ProjectReference Include="..\Application.Core\Application.Core.csproj" />
+    <ProjectReference Include="..\Application.Infrastructure\Application.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Attributes\" />
   </ItemGroup>
 
 </Project>
