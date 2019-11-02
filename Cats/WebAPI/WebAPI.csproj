@@ -7,16 +7,12 @@
   <ItemGroup>
     <Compile Remove="Controllers\FromApi\CP\**" />
     <Compile Remove="Controllers\FromMvc\**" />
-    <Compile Remove="Controllers\Obsolete_Services\**" />
     <Content Remove="Controllers\FromApi\CP\**" />
     <Content Remove="Controllers\FromMvc\**" />
-    <Content Remove="Controllers\Obsolete_Services\**" />
     <EmbeddedResource Remove="Controllers\FromApi\CP\**" />
     <EmbeddedResource Remove="Controllers\FromMvc\**" />
-    <EmbeddedResource Remove="Controllers\Obsolete_Services\**" />
     <None Remove="Controllers\FromApi\CP\**" />
     <None Remove="Controllers\FromMvc\**" />
-    <None Remove="Controllers\Obsolete_Services\**" />
   </ItemGroup>
 
   <ItemGroup>
