@@ -43,6 +43,7 @@
     <ProjectReference Include="..\Application.Core.UI\Application.Core.UI.csproj" />
     <ProjectReference Include="..\Application.Core\Application.Core.csproj" />
     <ProjectReference Include="..\Application.Infrastructure\Application.Infrastructure.csproj" />
+    <ProjectReference Include="..\LMP.PlagiarismNet\LMP.PlagiarismNet.csproj" />
   </ItemGroup>
 
   <ItemGroup>

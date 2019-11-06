@@ -52,6 +52,7 @@ namespace WebAPI.ViewModels.AdministrationViewModels
 
                 IsSecretary = lecturer.IsSecretary;
                 IsLecturerHasGraduateStudents = lecturer.IsLecturerHasGraduateStudents;
+                IsActive = lecturer.IsActive;
 
                 var groups = CorrelationService.GetCorrelation("Group", lecturer.Id);
                 if (lecturer.SecretaryGroups != null)
@@ -75,6 +76,8 @@ namespace WebAPI.ViewModels.AdministrationViewModels
         public string SkypeContact { get; set; }
 
         public string Phone { get; set; }
+
+        public bool IsActive { get; set; }
 
         public string Skill { get; set; }
 
@@ -164,6 +167,7 @@ namespace WebAPI.ViewModels.AdministrationViewModels
                 IsSecretary = IsSecretary,
                 IsLecturerHasGraduateStudents = IsLecturerHasGraduateStudents,
                 SecretaryGroups = selectedGroups,
+                IsActive = IsActive,
                 User = new User
                 {
                     Id = LecturerId,

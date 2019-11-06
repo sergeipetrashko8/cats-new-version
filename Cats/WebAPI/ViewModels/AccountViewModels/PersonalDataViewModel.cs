@@ -29,6 +29,7 @@ namespace WebAPI.ViewModels.AccountViewModels
                 SkypeContact = user.User.SkypeContact;
                 Phone = user.User.Phone;
                 Email = user.User.Email;
+                IsActive = user.IsActive;
                 IsLecturerHasGraduateStudents = user.IsLecturerHasGraduateStudents;
             }
             else if (StudentManagementService.GetStudent(/*todo #auth WebSecurity.CurrentUserId*/1) != null)
@@ -89,6 +90,8 @@ namespace WebAPI.ViewModels.AccountViewModels
         public string Skill { get; set; }
 
         public bool IsSecretary { get; set; }
+
+        public bool IsActive { get; set; }
 
         public bool IsLecturerHasGraduateStudents { get; set; }
     }
