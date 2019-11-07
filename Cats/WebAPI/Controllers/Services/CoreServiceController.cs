@@ -366,7 +366,7 @@ namespace WebAPI.Controllers.Services
             }
         }
 
-        [HttpGet("GetLecturesMarkVisitingV2?subjectId={subjectId}&groupId={groupId}")]
+        [HttpGet("GetLecturesMarkVisitingV2")]
         public IActionResult GetLecturesMarkVisitingV2(int subjectId, int groupId)
         {
             try
@@ -460,7 +460,7 @@ namespace WebAPI.Controllers.Services
             }
         }
 
-        [HttpGet("GetGroups?subjectId={subjectId}&groupId={groupId}")]
+        [HttpGet("GetGroups")]
         public IActionResult GetGroups(string subjectId, string groupId)
         {
             try

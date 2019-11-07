@@ -74,7 +74,7 @@ namespace WebAPI.Controllers.Services.Labs
 			}
 		}
 
-		[HttpGet("GetMarks?subjectId={subjectId}&groupId={groupId}")]
+		[HttpGet("GetMarks")]
 		public IActionResult GetMarks(int subjectId, int groupId)
 		{
 			try
@@ -182,37 +182,38 @@ namespace WebAPI.Controllers.Services.Labs
 			}
 		}
 
-		[HttpPost("SaveLabsVisitingData")]
-		public IActionResult SaveLabsVisitingData(int dateId, List<string> marks, List<string> comments,
-			List<int> studentsId, List<int> Id, List<StudentsViewData> students)
-		{
-			try
-			{
-				var count = studentsId.Count;
+		//todo # need to fix parameters
+		//[HttpPost("SaveLabsVisitingData")]
+		//public IActionResult SaveLabsVisitingData(int dateId, List<string> marks, List<string> comments,
+		//	List<int> studentsId, List<int> Id, List<StudentsViewData> students)
+		//{
+		//	try
+		//	{
+		//		var count = studentsId.Count;
 
-				for (var i = 0; i < count; i++)
-				{
-					var currentMark = marks[i];
-					var currentComment = comments[i];
-					var currentStudentId = studentsId[i];
-					var currentId = Id[i];
+		//		for (var i = 0; i < count; i++)
+		//		{
+		//			var currentMark = marks[i];
+		//			var currentComment = comments[i];
+		//			var currentStudentId = studentsId[i];
+		//			var currentId = Id[i];
 
-					foreach (var student in students)
-						if (student.StudentId == currentStudentId)
-							foreach (var labVisiting in student.LabVisitingMark)
-								if (labVisiting.ScheduleProtectionLabId == dateId)
-									SubjectManagementService.SaveLabsVisitingData(
-										new ScheduleProtectionLabMark(currentId, currentStudentId, currentComment,
-											currentMark, dateId));
-				}
+		//			foreach (var student in students)
+		//				if (student.StudentId == currentStudentId)
+		//					foreach (var labVisiting in student.LabVisitingMark)
+		//						if (labVisiting.ScheduleProtectionLabId == dateId)
+		//							SubjectManagementService.SaveLabsVisitingData(
+		//								new ScheduleProtectionLabMark(currentId, currentStudentId, currentComment,
+		//									currentMark, dateId));
+		//		}
 
-				return Ok();
-			}
-			catch (Exception ex)
-			{
-				return ServerError500(ex.Message);
-			}
-		}
+		//		return Ok();
+		//	}
+		//	catch (Exception ex)
+		//	{
+		//		return ServerError500(ex.Message);
+		//	}
+		//}
 
 		[HttpPost("SaveStudentLabsMark")]
 		public IActionResult SaveStudentLabsMark(int studentId, int labId, string mark, string comment, string date,
@@ -315,7 +316,7 @@ namespace WebAPI.Controllers.Services.Labs
 			}
 		}
 
-		[HttpGet("GetMarksV2?subjectId={subjectId}&groupId={groupId}")]
+		[HttpGet("GetMarksV2")]
 		public IActionResult GetMarksV2(int subjectId, int groupId)
 		{
 			try
@@ -389,7 +390,7 @@ namespace WebAPI.Controllers.Services.Labs
 			}
 		}
 
-		[HttpGet("GetFilesV2?subjectId={subjectId}&groupId={groupId}&IsCp={isCp}")]
+		[HttpGet("GetFilesV2")]
 		public IActionResult GetFilesV2(int subjectId, int groupId, bool isCp)
 		{
 			try
@@ -440,7 +441,7 @@ namespace WebAPI.Controllers.Services.Labs
 			}
 		}
 
-		[HttpGet("GetLabsV2?subjectId={subjectId}&groupId={groupId}")]
+		[HttpGet("GetLabsV2")]
 		public IActionResult GetLabsV2(string subjectId, int groupId)
 		{
 			try
