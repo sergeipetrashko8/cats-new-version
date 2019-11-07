@@ -19,12 +19,14 @@ namespace LMP.Data.Infrastructure
         {
             if (!optionsBuilder.IsConfigured)
                 optionsBuilder.UseSqlServer(@"
-Server=tcp:bntu.database.windows.net,1433;
-Initial Catalog=bntu;
-Persist Security Info=False;
-MultipleActiveResultSets=False;Encrypt=True;
-TrustServerCertificate=False;
-Connection Timeout=30;");
+					Server=tcp:bntu.database.windows.net,1433;
+					Initial Catalog=bntu;
+					Persist Security Info=False;
+					User ID=siarhei_piatrashka;
+					Password=CaTs12345;
+					MultipleActiveResultSets=False;Encrypt=True;
+					TrustServerCertificate=False;
+					Connection Timeout=30;");
         }
 
         #endregion
