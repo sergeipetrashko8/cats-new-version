@@ -1,18 +1,15 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="Controllers\FromApi\CP\**" />
-    <Compile Remove="Controllers\FromMvc\**" />
     <Content Remove="Controllers\FromApi\CP\**" />
-    <Content Remove="Controllers\FromMvc\**" />
     <EmbeddedResource Remove="Controllers\FromApi\CP\**" />
-    <EmbeddedResource Remove="Controllers\FromMvc\**" />
     <None Remove="Controllers\FromApi\CP\**" />
-    <None Remove="Controllers\FromMvc\**" />
   </ItemGroup>
 
   <ItemGroup>
