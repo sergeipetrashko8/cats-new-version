@@ -88,7 +88,7 @@ namespace WebAPI.ViewModels.BTSViewModels
         public bool IsProjectManager()
         {
             var projectUser = new ProjectManagementService().GetProjectUsers(ProjectId)
-                .Count(e => e.UserId == /*todo #auth WebSecurity.CurrentUserId*/1 && e.ProjectRoleId == 3);
+                .Count(e => e.UserId == /*todo #auth WebSecurity.CurrentUserId*/2 && e.ProjectRoleId == 3);
 
             return projectUser != 0;
         }
@@ -232,7 +232,7 @@ namespace WebAPI.ViewModels.BTSViewModels
 
         public void SaveComment(string comment)
         {
-            var currentUserId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            var currentUserId = /*todo #auth WebSecurity.CurrentUserId*/2;
             var newComment = new ProjectComment
             {
                 CommentText = comment,

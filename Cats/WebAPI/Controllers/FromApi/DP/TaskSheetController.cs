@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Application.Infrastructure.DTO;
 using Microsoft.AspNetCore.Mvc;
@@ -25,7 +25,7 @@ namespace WebAPI.Controllers.FromApi.DP
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            DpManagementService.SaveTaskSheet( /*todo #auth WebSecurity.CurrentUserId*/1, taskSheet);
+            DpManagementService.SaveTaskSheet( /*todo #auth WebSecurity.CurrentUserId*/2, taskSheet);
             return Ok();
         }
     }

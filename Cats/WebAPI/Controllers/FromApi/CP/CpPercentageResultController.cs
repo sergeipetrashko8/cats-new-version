@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.CPManagement;
 using Application.Infrastructure.CTO;
@@ -35,11 +35,11 @@ namespace WebAPI.Controllers.FromApi.CP
 
             var result = new
             {
-                Students = CpManagementService.GetGraduateStudentsForGroup( /*todo #auth WebSecurity.CurrentUserId*/1,
+                Students = CpManagementService.GetGraduateStudentsForGroup( /*todo #auth WebSecurity.CurrentUserId*/2,
                     groupId,
                     subjectId, parms, false),
                 PercentageGraphs =
-                    PercentageService.GetPercentageGraphsForLecturerAll( /*todo #auth WebSecurity.CurrentUserId*/1,
+                    PercentageService.GetPercentageGraphsForLecturerAll( /*todo #auth WebSecurity.CurrentUserId*/2,
                         parms)
             };
             return Ok(result);
@@ -64,7 +64,7 @@ namespace WebAPI.Controllers.FromApi.CP
                 return BadRequest(ModelState);
             }
 
-            PercentageService.SavePercentageResult( /*todo #auth WebSecurity.CurrentUserId*/1, percentageResult);
+            PercentageService.SavePercentageResult( /*todo #auth WebSecurity.CurrentUserId*/2, percentageResult);
             return Ok();
         }
     }

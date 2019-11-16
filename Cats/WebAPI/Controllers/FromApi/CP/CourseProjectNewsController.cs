@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Application.Core;
 using Application.Infrastructure.CPManagement;
 using LMP.Models.CP;
@@ -16,7 +16,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpGet("{id:int}")]
         public IActionResult Get(int id)
         {
-            var result = CpManagementService.GetNewses( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            var result = CpManagementService.GetNewses( /*todo #auth WebSecurity.CurrentUserId*/2, id);
             return Ok(result);
         }
 

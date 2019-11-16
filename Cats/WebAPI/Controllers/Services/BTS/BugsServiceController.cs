@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Application.Core;
 using Application.Infrastructure.BugManagement;
@@ -20,11 +20,11 @@ namespace WebAPI.Controllers.Services.BTS
         public BugsResult Index(int pageSize, int pageNumber, string sortingPropertyName, bool desc = false,
             string searchString = null)
         {
-            var bugs = BugManagementService.GetUserBugs( /*todo #auth WebSecurity.CurrentUserId*/1, pageSize,
+            var bugs = BugManagementService.GetUserBugs( /*todo #auth WebSecurity.CurrentUserId*/2, pageSize,
                     pageNumber, sortingPropertyName, desc, searchString)
                 .Select(e => new BugViewData(e)).ToList();
             var totalCount =
-                BugManagementService.GetUserBugsCount( /*todo #auth WebSecurity.CurrentUserId*/1, searchString);
+                BugManagementService.GetUserBugsCount( /*todo #auth WebSecurity.CurrentUserId*/2, searchString);
             return new BugsResult
             {
                 Bugs = bugs,

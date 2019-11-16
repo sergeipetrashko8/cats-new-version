@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.DPManagement;
 using Application.Infrastructure.DTO;
@@ -21,7 +21,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpGet]
         public IActionResult Get([ModelBinder] GetPagedListParams parms)
         {
-            var lecturerId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            var lecturerId = /*todo #auth WebSecurity.CurrentUserId*/2;
             if (parms.Filters.ContainsKey("lecturerId")) lecturerId = int.Parse(parms.Filters["lecturerId"]);
 
             var result = new
@@ -41,7 +41,7 @@ namespace WebAPI.Controllers.FromApi.DP
                 return BadRequest(ModelState);
             }
 
-            PercentageService.SaveConsultationMark( /*todo #auth WebSecurity.CurrentUserId*/1, consultationMark);
+            PercentageService.SaveConsultationMark( /*todo #auth WebSecurity.CurrentUserId*/2, consultationMark);
             return Ok();
         }
     }

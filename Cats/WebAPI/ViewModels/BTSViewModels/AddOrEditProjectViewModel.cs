@@ -19,7 +19,7 @@ namespace WebAPI.ViewModels.BTSViewModels
 
         public AddOrEditProjectViewModel()
         {
-            CreatorId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            CreatorId = /*todo #auth WebSecurity.CurrentUserId*/2;
         }
 
         public AddOrEditProjectViewModel(int projectId)

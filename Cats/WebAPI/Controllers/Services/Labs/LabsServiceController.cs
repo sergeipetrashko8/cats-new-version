@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
@@ -127,7 +127,7 @@ namespace WebAPI.Controllers.Services.Labs
 					ShortName = shortName,
 					Attachments = pathFile,
 					Id = int.Parse(id)
-				}, attachmentsModel, /*todo #auth WebSecurity.CurrentUserId*/1);
+				}, attachmentsModel, /*todo #auth WebSecurity.CurrentUserId*/2);
 
 				return Ok();
 			}

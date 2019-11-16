@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.DPManagement;
 using Application.Infrastructure.DTO;
@@ -23,10 +23,10 @@ namespace WebAPI.Controllers.FromApi.DP
         {
             var result = new
             {
-                Students = DpManagementService.GetGraduateStudentsForUser( /*todo #auth WebSecurity.CurrentUserId*/1,
+                Students = DpManagementService.GetGraduateStudentsForUser( /*todo #auth WebSecurity.CurrentUserId*/2,
                     parms),
                 PercentageGraphs =
-                    PercentageService.GetPercentageGraphsForLecturerAll( /*todo #auth WebSecurity.CurrentUserId*/1,
+                    PercentageService.GetPercentageGraphsForLecturerAll( /*todo #auth WebSecurity.CurrentUserId*/2,
                         parms)
             };
 
@@ -49,7 +49,7 @@ namespace WebAPI.Controllers.FromApi.DP
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            PercentageService.SavePercentageResult( /*todo #auth WebSecurity.CurrentUserId*/1, percentageResult);
+            PercentageService.SavePercentageResult( /*todo #auth WebSecurity.CurrentUserId*/2, percentageResult);
             return Ok();
         }
     }

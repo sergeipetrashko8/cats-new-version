@@ -92,7 +92,7 @@ namespace WebAPI.ViewModels.SubjectModulesViewModel.ModulesViewModel
                 ShortName = ShortName,
                 Attachments = PathFile,
                 Id = PracticalId
-            }, attachments, /*todo #auth WebSecurity.CurrentUserId*/1);
+            }, attachments, /*todo #auth WebSecurity.CurrentUserId*/2);
             return true;
         }
     }

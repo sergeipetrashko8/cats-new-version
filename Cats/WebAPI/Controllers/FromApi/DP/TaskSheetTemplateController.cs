@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.DPManagement;
 using LMP.Models.DP;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpPost]
         public IActionResult Post([FromBody] DiplomProjectTaskSheetTemplate template)
         {
-            template.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            template.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/2;
             DpManagementService.SaveTaskSheetTemplate(template);
             return Accepted();
         }

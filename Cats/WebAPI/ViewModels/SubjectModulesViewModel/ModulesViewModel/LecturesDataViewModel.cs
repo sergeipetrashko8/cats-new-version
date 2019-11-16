@@ -86,7 +86,7 @@ namespace WebAPI.ViewModels.SubjectModulesViewModel.ModulesViewModel
                 Order = 0,
                 Attachments = PathFile,
                 Id = LecturesId
-            }, attachments, /*todo #auth WebSecurity.CurrentUserId*/1);
+            }, attachments, /*todo #auth WebSecurity.CurrentUserId*/2);
             return true;
         }
     }

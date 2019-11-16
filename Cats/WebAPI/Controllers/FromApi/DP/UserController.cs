@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,7 +13,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpGet]
         public IActionResult Get()
         {
-            var result = UserService.GetUserInfo( /*todo #auth WebSecurity.CurrentUserId*/1);
+            var result = UserService.GetUserInfo( /*todo #auth WebSecurity.CurrentUserId*/2);
 
             return Ok(result);
         }

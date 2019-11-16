@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -60,7 +60,7 @@ namespace WebAPI.Controllers.Services
             try
             {
                 LecturerManagementService.DisjoinLector(int.Parse(subjectId),
-                    int.Parse(lectorId), /*todo #auth WebSecurity.CurrentUserId*/1);
+                    int.Parse(lectorId), /*todo #auth WebSecurity.CurrentUserId*/2);
 
                 return Ok();
             }
@@ -77,7 +77,7 @@ namespace WebAPI.Controllers.Services
             {
                 var lectors =
                     LecturerManagementService.GetJoinedLector(
-                        int.Parse(subjectId), /*todo #auth WebSecurity.CurrentUserId*/1);
+                        int.Parse(subjectId), /*todo #auth WebSecurity.CurrentUserId*/2);
 
                 var result = lectors.Select(e => new LectorViewData(e)).ToList();
                 return Ok(result);
@@ -93,7 +93,7 @@ namespace WebAPI.Controllers.Services
         {
             try
             {
-                LecturerManagementService.Join(subjectId, lectorId, /*todo #auth WebSecurity.CurrentUserId*/1);
+                LecturerManagementService.Join(subjectId, lectorId, /*todo #auth WebSecurity.CurrentUserId*/2);
 
                 return Ok();
             }
@@ -109,8 +109,8 @@ namespace WebAPI.Controllers.Services
             try
             {
                 var lectors = LecturerManagementService.GetLecturers().Where(e =>
-                    e.Id != /*todo #auth WebSecurity.CurrentUserId*/1 && !e.SubjectLecturers.Any(x =>
-                        x.SubjectId == int.Parse(subjectId) && x.Owner == /*todo #auth WebSecurity.CurrentUserId*/1));
+                    e.Id != /*todo #auth WebSecurity.CurrentUserId*/2 && !e.SubjectLecturers.Any(x =>
+                        x.SubjectId == int.Parse(subjectId) && x.Owner == /*todo #auth WebSecurity.CurrentUserId*/2));
 
                 var result = lectors.Select(e => new LectorViewData(e)).ToList();
                 return Ok(result);
@@ -127,7 +127,7 @@ namespace WebAPI.Controllers.Services
             try
             {
                 var subjects =
-                    SubjectManagementService.GetSubjectsByLectorOwner( /*todo #auth WebSecurity.CurrentUserId*/1);
+                    SubjectManagementService.GetSubjectsByLectorOwner( /*todo #auth WebSecurity.CurrentUserId*/2);
 
                 var result = subjects.Select(e => new SubjectViewData {Id = e.Id, Name = e.Name}).ToList();
                 return Ok(result);
@@ -220,7 +220,7 @@ namespace WebAPI.Controllers.Services
         {
             try
             {
-                var groups = GroupManagementService.GetLecturesGroups( /*todo #auth WebSecurity.CurrentUserId*/1);
+                var groups = GroupManagementService.GetLecturesGroups( /*todo #auth WebSecurity.CurrentUserId*/2);
 
                 var groupsViewModel = new List<GroupsViewData>();
 

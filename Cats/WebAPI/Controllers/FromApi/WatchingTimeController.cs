@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Application.Core;
@@ -95,7 +95,7 @@ namespace WebAPI.Controllers.FromApi
         [HttpPut("{id:int}")]
         public void Put(int id)
         {
-            var userId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            var userId = /*todo #auth WebSecurity.CurrentUserId*/2;
             var concept = ConceptManagementService.GetById(id);
             WatchingTimeService.SaveWatchingTime(new WatchingTime(userId, concept.Id, 10));
             //WatchingTimeService.SaveWatchingTime(new WatchingTime(userId, concept, 10));

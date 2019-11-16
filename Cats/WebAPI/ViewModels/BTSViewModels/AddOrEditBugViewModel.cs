@@ -26,7 +26,7 @@ namespace WebAPI.ViewModels.BTSViewModels
 
         public AddOrEditBugViewModel()
         {
-            CreatorId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            CreatorId = /*todo #auth WebSecurity.CurrentUserId*/2;
         }
 
         public AddOrEditBugViewModel(int bugId)
@@ -116,7 +116,7 @@ namespace WebAPI.ViewModels.BTSViewModels
             var users = new List<User>();
 
             var currProjectUser =
-                context.GetProjectUsers(ProjectId).Single(e => e.UserId == /*todo #auth WebSecurity.CurrentUserId*/1);
+                context.GetProjectUsers(ProjectId).Single(e => e.UserId == /*todo #auth WebSecurity.CurrentUserId*/2);
             if (currProjectUser.ProjectRoleId == 1)
             {
                 users.Add(_context.GetUser(currProjectUser.UserId));
@@ -139,7 +139,7 @@ namespace WebAPI.ViewModels.BTSViewModels
             var statuses = new List<BugStatus>();
 
             var userRoleOnProject =
-                new ProjectManagementService().GetProjectsOfUser(/*todo #auth WebSecurity.CurrentUserId*/1)
+                new ProjectManagementService().GetProjectsOfUser(/*todo #auth WebSecurity.CurrentUserId*/2)
                     .Single(e => e.ProjectId == ProjectId).ProjectRoleId;
 
             switch (userRoleOnProject)
@@ -337,7 +337,7 @@ namespace WebAPI.ViewModels.BTSViewModels
 
         public IList<SelectListItem> GetProjectNames()
         {
-            var projectUsers = new ProjectManagementService().GetProjectsOfUser(/*todo #auth WebSecurity.CurrentUserId*/1);
+            var projectUsers = new ProjectManagementService().GetProjectsOfUser(/*todo #auth WebSecurity.CurrentUserId*/2);
             var projects = projectUsers.Select(projectUser => new ProjectManagementService().GetProject(projectUser.ProjectId)).ToList();
 
             return projects.Select(e => new SelectListItem
@@ -373,7 +373,7 @@ namespace WebAPI.ViewModels.BTSViewModels
                 bug.ReportingDate = DateTime.Today;
                 bug.StatusId = 1;
                 bug.AssignedDeveloperId = 0;
-                bug.ReporterId = /*todo #auth WebSecurity.CurrentUserId*/1;
+                bug.ReporterId = /*todo #auth WebSecurity.CurrentUserId*/2;
             }
             else
             {

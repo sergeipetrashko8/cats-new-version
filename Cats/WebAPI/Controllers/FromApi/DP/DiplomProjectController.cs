@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.DPManagement;
 using Application.Infrastructure.DTO;
@@ -16,7 +16,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpGet]
         public IActionResult Get([ModelBinder] GetPagedListParams parms)
         {
-            var result = DpManagementService.GetProjects( /*todo #auth WebSecurity.CurrentUserId*/1, parms);
+            var result = DpManagementService.GetProjects( /*todo #auth WebSecurity.CurrentUserId*/2, parms);
             return Ok(result);
         }
 
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            DpManagementService.DeleteProject( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            DpManagementService.DeleteProject( /*todo #auth WebSecurity.CurrentUserId*/2, id);
 
             return Ok();
         }
@@ -51,7 +51,7 @@ namespace WebAPI.Controllers.FromApi.DP
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            project.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            project.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/2;
             DpManagementService.SaveProject(project);
             return Ok();
         }

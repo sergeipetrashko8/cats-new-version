@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.CPManagement;
 using Application.Infrastructure.CTO;
@@ -16,7 +16,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpGet]
         public IActionResult Get([ModelBinder] GetPagedListParams parms)
         {
-            var result = CpManagementService.GetProjects( /*todo #auth WebSecurity.CurrentUserId*/1, parms);
+            var result = CpManagementService.GetProjects( /*todo #auth WebSecurity.CurrentUserId*/2, parms);
             return Ok(result);
         }
 
@@ -42,7 +42,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            CpManagementService.DeleteProject( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            CpManagementService.DeleteProject( /*todo #auth WebSecurity.CurrentUserId*/2, id);
             return Ok();
         }
 
@@ -50,7 +50,7 @@ namespace WebAPI.Controllers.FromApi.CP
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            project.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            project.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/2;
 
             CpManagementService.SaveProject(project);
             return Ok();

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -23,7 +23,7 @@ namespace WebAPI.Controllers.Services.Messages
         {
             try
             {
-                var userId = /*todo #auth WebSecurity.CurrentUserId*/1;
+                var userId = /*todo #auth WebSecurity.CurrentUserId*/2;
                 var model = MessageManagementService.GetUserMessages(userId).DistinctBy(m => m.MessageId).ToList();
                 var result = new
                 {
@@ -46,7 +46,7 @@ namespace WebAPI.Controllers.Services.Messages
         {
             try
             {
-                var userId = /*todo #auth WebSecurity.CurrentUserId*/1;
+                var userId = /*todo #auth WebSecurity.CurrentUserId*/2;
                 var msgId = int.Parse(id);
 
                 var msg = MessageManagementService.GetUserMessage(msgId, userId);
@@ -80,7 +80,7 @@ namespace WebAPI.Controllers.Services.Messages
             {
                 var attachmentsList = JsonSerializer.Deserialize<List<Attachment>>(attachments).ToList();
                 var recipientsList = JsonSerializer.Deserialize<List<int>>(recipients).ToList();
-                var fromId = /*todo #auth WebSecurity.CurrentUserId*/1;
+                var fromId = /*todo #auth WebSecurity.CurrentUserId*/2;
 
                 if (!string.IsNullOrEmpty(subject) && subject.Length > 50) subject = subject.Substring(0, 50);
 
@@ -123,7 +123,7 @@ namespace WebAPI.Controllers.Services.Messages
         {
             try
             {
-                var userId = /*todo #auth WebSecurity.CurrentUserId*/1;
+                var userId = /*todo #auth WebSecurity.CurrentUserId*/2;
                 var result = MessageManagementService.DeleteMessage(messageId, userId);
 
                 return Ok();

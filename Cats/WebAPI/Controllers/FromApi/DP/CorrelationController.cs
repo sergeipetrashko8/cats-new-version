@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,7 +15,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpGet]
         public IActionResult Get(string entity)
         {
-            return Ok(CorrelationService.GetCorrelation(entity, /*todo #auth WebSecurity.CurrentUserId*/1));
+            return Ok(CorrelationService.GetCorrelation(entity, /*todo #auth WebSecurity.CurrentUserId*/2));
         }
     }
 }

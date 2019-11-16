@@ -15,9 +15,9 @@ namespace WebAPI.ViewModels.AccountViewModels
 
         public PersonalDataViewModel()
         {
-            if (LecturerManagementService.GetLecturer(/*todo #auth WebSecurity.CurrentUserId*/1) != null)
+            if (LecturerManagementService.GetLecturer(/*todo #auth WebSecurity.CurrentUserId*/2) != null)
             {
-                var user = LecturerManagementService.GetLecturer(/*todo #auth WebSecurity.CurrentUserId*/1);
+                var user = LecturerManagementService.GetLecturer(/*todo #auth WebSecurity.CurrentUserId*/2);
                 Name = user.FirstName;
                 Skill = user.Skill;
                 Surname = user.LastName;
@@ -32,9 +32,9 @@ namespace WebAPI.ViewModels.AccountViewModels
                 IsActive = user.IsActive;
                 IsLecturerHasGraduateStudents = user.IsLecturerHasGraduateStudents;
             }
-            else if (StudentManagementService.GetStudent(/*todo #auth WebSecurity.CurrentUserId*/1) != null)
+            else if (StudentManagementService.GetStudent(/*todo #auth WebSecurity.CurrentUserId*/2) != null)
             {
-                var user = StudentManagementService.GetStudent(/*todo #auth WebSecurity.CurrentUserId*/1);
+                var user = StudentManagementService.GetStudent(/*todo #auth WebSecurity.CurrentUserId*/2);
                 Name = user.FirstName;
                 Patronymic = user.MiddleName;
                 Surname = user.LastName;

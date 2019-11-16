@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -78,7 +78,7 @@ namespace WebAPI.Controllers.Services.Lectures
                     Order = int.Parse(order),
                     Attachments = pathFile,
                     Id = int.Parse(id)
-                }, attachmentsModel, /*todo #auth WebSecurity.CurrentUserId*/1);
+                }, attachmentsModel, /*todo #auth WebSecurity.CurrentUserId*/2);
 
                 return Ok();
             }

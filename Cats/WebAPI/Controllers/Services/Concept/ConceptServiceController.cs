@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -92,7 +92,7 @@ namespace WebAPI.Controllers.Services.Concept
 			try
 			{
 				var subjectId = int.Parse(subject);
-				var authorId = /*todo #auth WebSecurity.CurrentUserId*/1;
+				var authorId = /*todo #auth WebSecurity.CurrentUserId*/2;
 
 				var root = ConceptManagementService.CreateRootConcept(name, authorId, subjectId);
 				var subj = SubjectManagementService.GetSubject(subjectId);
@@ -125,7 +125,7 @@ namespace WebAPI.Controllers.Services.Concept
 			try
 			{
 				var valid = int.TryParse(subjectId, out var subject);
-				var authorId = /*todo #auth WebSecurity.CurrentUserId*/1;
+				var authorId = /*todo #auth WebSecurity.CurrentUserId*/2;
 
 				var concepts = CurrentUserIsLector() ? ConceptManagementService.GetRootElements(authorId) :
 					valid ? ConceptManagementService.GetRootElementsBySubject(subject).Where(c => c.Published) :
@@ -159,7 +159,7 @@ namespace WebAPI.Controllers.Services.Concept
 		{
 			try
 			{
-				var authorId = /*todo #auth WebSecurity.CurrentUserId*/1;
+				var authorId = /*todo #auth WebSecurity.CurrentUserId*/2;
 				var parent = int.Parse(parentId);
 
 				var concepts = CurrentUserIsLector()
@@ -194,7 +194,7 @@ namespace WebAPI.Controllers.Services.Concept
 			{
 				var conceptId = int.Parse(id);
 				var source = ConceptManagementService.GetById(conceptId);
-				var canDelete = source != null && source.Author.Id == /*todo #auth WebSecurity.CurrentUserId*/1;
+				var canDelete = source != null && source.Author.Id == /*todo #auth WebSecurity.CurrentUserId*/2;
 				if (canDelete) ConceptManagementService.Remove(conceptId, source.IsGroup);
 
 				return new ConceptResult

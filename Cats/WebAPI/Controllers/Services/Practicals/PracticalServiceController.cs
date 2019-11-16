@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -53,7 +53,7 @@ namespace WebAPI.Controllers.Services.Practicals
                     ShortName = shortName,
                     Attachments = pathFile,
                     Id = int.Parse(id)
-                }, attachmentsModel, /*todo auth WebSecurity.CurrentUserId*/1);
+                }, attachmentsModel, /*todo auth WebSecurity.CurrentUserId*/2);
                 return Ok();
             }
             catch (Exception ex)

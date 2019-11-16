@@ -19,7 +19,7 @@ namespace WebAPI.ViewModels.MessageViewModels
 
         public IMessageManagementService MessageManagementService => _messageManagementService.Value;
 
-        private int UserId => /*todo #auth WebSecurity.CurrentUserId*/1;
+        private int UserId => /*todo #auth WebSecurity.CurrentUserId*/2;
 
         public List<DisplayMessageViewModel> IncomingMessages
         {

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
@@ -17,7 +17,7 @@ namespace WebAPI.Controllers.FromApi.DP
         {
             if (ModelState.IsValid)
             {
-                PercentageService.SaveConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/1, consultationDate);
+                PercentageService.SaveConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/2, consultationDate);
                 return Ok();
             }
 
@@ -27,7 +27,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            PercentageService.DeleteConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            PercentageService.DeleteConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/2, id);
 
             return Ok();
         }

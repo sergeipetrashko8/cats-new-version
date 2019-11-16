@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Application.Core;
 using Application.Infrastructure.DPManagement;
 using LMP.Models.DP;
@@ -16,7 +16,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpGet]
         public IActionResult Get()
         {
-            var result = DpManagementService.GetNewses( /*todo #auth WebSecurity.CurrentUserId*/1);
+            var result = DpManagementService.GetNewses( /*todo #auth WebSecurity.CurrentUserId*/2);
             return Ok(result);
         }
 

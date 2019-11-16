@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Application.Infrastructure.CTO;
 using Microsoft.AspNetCore.Mvc;
@@ -16,7 +16,7 @@ namespace WebAPI.Controllers.FromApi.CP
         public IActionResult Post(
             [FromBody] /*DateTime consultationDate, int subject*/CourseProjectConsultationDateData consultationDate)
         {
-            PercentageService.SaveConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/1, consultationDate.Day,
+            PercentageService.SaveConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/2, consultationDate.Day,
                 consultationDate.SubjectId);
             return Ok();
         }
@@ -24,7 +24,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            PercentageService.DeleteConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            PercentageService.DeleteConsultationDate( /*todo #auth WebSecurity.CurrentUserId*/2, id);
             return Ok();
         }
     }

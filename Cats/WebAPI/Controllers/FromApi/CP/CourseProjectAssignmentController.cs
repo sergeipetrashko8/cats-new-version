@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +14,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpPost]
         public IActionResult Post([FromBody] AssignProjectUpdateModel updateModel)
         {
-            CpManagementService.AssignProject( /*todo #auth WebSecurity.CurrentUserId*/1, updateModel.ProjectId,
+            CpManagementService.AssignProject( /*todo #auth WebSecurity.CurrentUserId*/2, updateModel.ProjectId,
                 updateModel.StudentId);
 
             return Ok();
@@ -23,7 +23,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            CpManagementService.DeleteAssignment( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            CpManagementService.DeleteAssignment( /*todo #auth WebSecurity.CurrentUserId*/2, id);
 
             return Ok();
         }

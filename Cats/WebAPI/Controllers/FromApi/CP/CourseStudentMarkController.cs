@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Microsoft.AspNetCore.Mvc;
 
@@ -19,7 +19,7 @@ namespace WebAPI.Controllers.FromApi.CP
                 return BadRequest(ModelState);
             }
 
-            CpManagementService.SetStudentDiplomMark( /*todo #auth WebSecurity.CurrentUserId*/1, mark[0], mark[1]);
+            CpManagementService.SetStudentDiplomMark( /*todo #auth WebSecurity.CurrentUserId*/2, mark[0], mark[1]);
             return Ok();
         }
     }

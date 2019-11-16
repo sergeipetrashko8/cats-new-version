@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.CPManagement;
 using LMP.Models.CP;
 using Microsoft.AspNetCore.Mvc;
@@ -22,7 +22,7 @@ namespace WebAPI.Controllers.FromApi.CP
         [HttpPost]
         public IActionResult Post([FromBody] CourseProjectTaskSheetTemplate template)
         {
-            template.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/1;
+            template.LecturerId = /*todo #auth WebSecurity.CurrentUserId*/2;
             CpManagementService.SaveTaskSheetTemplate(template);
             return Ok();
         }

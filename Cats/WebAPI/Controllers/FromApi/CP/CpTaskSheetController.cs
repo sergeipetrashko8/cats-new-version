@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Application.Infrastructure.CTO;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +24,7 @@ namespace WebAPI.Controllers.FromApi.CP
         {
             if (!ModelState.IsValid) return BadRequest(ModelState);
 
-            CpManagementService.SaveTaskSheet( /*todo #auth WebSecurity.CurrentUserId*/1, taskSheet);
+            CpManagementService.SaveTaskSheet( /*todo #auth WebSecurity.CurrentUserId*/2, taskSheet);
             return Ok();
         }
     }

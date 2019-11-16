@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Microsoft.AspNetCore.Mvc;
 
@@ -16,7 +16,7 @@ namespace WebAPI.Controllers.FromApi.CP
         public IActionResult Get(string entity, string subjectId)
         {
             var result = CorrelationService.GetCorrelation(entity,
-                subjectId == null ? 0 : int.Parse(subjectId), /*todo #auth WebSecurity.CurrentUserId*/1);
+                subjectId == null ? 0 : int.Parse(subjectId), /*todo #auth WebSecurity.CurrentUserId*/2);
             return Ok(result);
         }
     }

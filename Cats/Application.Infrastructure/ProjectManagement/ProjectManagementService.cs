@@ -317,6 +317,7 @@ namespace Application.Infrastructure.ProjectManagement
             {
                 bug.ReporterId = project.CreatorId;
                 //todo # bug.EditorId = WebSecurity.CurrentUserId;
+                bug.EditorId = 2;
 
                 BugManagementService.SaveBug(bug);
             }
@@ -333,6 +334,7 @@ namespace Application.Infrastructure.ProjectManagement
                 {
                     bug.AssignedDeveloperId = 0;
                     //todo # bug.EditorId = WebSecurity.CurrentUserId;
+                    bug.EditorId = 2;
                 }
 
                 BugManagementService.SaveBug(bug);

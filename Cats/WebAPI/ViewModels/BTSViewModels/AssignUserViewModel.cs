@@ -92,8 +92,8 @@ namespace WebAPI.ViewModels.BTSViewModels
         {
             var groups = new List<Group>();
 
-            var user = new UsersManagementService().GetUser(/*todo #auth WebSecurity.CurrentUserId*/1);
-            groups = user != null ? GetAssignedGroups(/*todo #auth WebSecurity.CurrentUserId*/1) : new GroupManagementService().GetGroups();
+            var user = new UsersManagementService().GetUser(/*todo #auth WebSecurity.CurrentUserId*/2);
+            groups = user != null ? GetAssignedGroups(/*todo #auth WebSecurity.CurrentUserId*/2) : new GroupManagementService().GetGroups();
 
             return groups.Select(v => new SelectListItem
             {

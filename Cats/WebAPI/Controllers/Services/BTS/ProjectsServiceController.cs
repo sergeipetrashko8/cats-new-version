@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Application.Core;
 using Application.Infrastructure.ProjectManagement;
@@ -21,11 +21,11 @@ namespace WebAPI.Controllers.Services.BTS
         public ProjectsResult Index(int pageSize, int pageNumber, string sortingPropertyName, bool desc = false,
             string searchString = null)
         {
-            var projects = ProjectManagementService.GetUserProjects( /*todo #auth WebSecurity.CurrentUserId*/1,
+            var projects = ProjectManagementService.GetUserProjects( /*todo #auth WebSecurity.CurrentUserId*/2,
                     pageSize, pageNumber, sortingPropertyName, desc, searchString)
                 .Select(e => new ProjectViewData(e)).ToList();
             var totalCount =
-                ProjectManagementService.GetUserProjectsCount( /*todo #auth WebSecurity.CurrentUserId*/1, searchString);
+                ProjectManagementService.GetUserProjectsCount( /*todo #auth WebSecurity.CurrentUserId*/2, searchString);
             return new ProjectsResult
             {
                 Projects = projects,

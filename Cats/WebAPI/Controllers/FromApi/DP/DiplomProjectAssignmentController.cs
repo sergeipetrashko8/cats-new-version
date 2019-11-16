@@ -1,4 +1,4 @@
-﻿using Application.Core;
+using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
 
@@ -14,7 +14,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpPost]
         public IActionResult Post([FromBody] AssignProjectUpdateModel updateModel)
         {
-            DpManagementService.AssignProject( /*todo #auth WebSecurity.CurrentUserId*/1, updateModel.ProjectId,
+            DpManagementService.AssignProject( /*todo #auth WebSecurity.CurrentUserId*/2, updateModel.ProjectId,
                 updateModel.StudentId);
 
             return Ok();
@@ -23,7 +23,7 @@ namespace WebAPI.Controllers.FromApi.DP
         [HttpDelete("{id:int}")]
         public IActionResult Delete(int id)
         {
-            DpManagementService.DeleteAssignment( /*todo #auth WebSecurity.CurrentUserId*/1, id);
+            DpManagementService.DeleteAssignment( /*todo #auth WebSecurity.CurrentUserId*/2, id);
 
             return Ok();
         }
