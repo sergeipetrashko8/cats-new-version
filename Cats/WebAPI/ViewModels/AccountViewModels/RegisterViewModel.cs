@@ -9,6 +9,7 @@ using Application.Infrastructure.LecturerManagement;
 using Application.Infrastructure.StudentManagement;
 using Application.Infrastructure.UserManagement;
 using Application.SearchEngine.SearchMethods;
+using FluentValidation;
 using LMP.Data.Repositories.RepositoryContracts;
 using LMP.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -47,49 +48,24 @@ namespace WebAPI.ViewModels.AccountViewModels
 
 		private IUsersManagementService UsersManagementService => _usersManagementService.Value;
 
-		[StringLength(50, ErrorMessage = "Имя не может иметь размер больше 50 символов")]
-		[DataType(DataType.Text)]
-		[Display(Name = "Имя")]
-		[Required(ErrorMessage = "Поле Имя обязательно для заполнения")]
 		public string Name { get; set; }
 
-		[StringLength(50, ErrorMessage = "Фамилия не может иметь размер больше 50 символов")]
-		[DataType(DataType.Text)]
-		[Display(Name = "Фамилия")]
-		[Required(ErrorMessage = "Поле Фамилия обязательно для заполнения")]
 		public string Surname { get; set; }
 
-		[StringLength(50, ErrorMessage = "Отчество не может иметь размер больше 50 символов")]
-		[DataType(DataType.Text)]
-		[Display(Name = "Отчество")]
-		public string Patronymic { get; set; }
+        public string Patronymic { get; set; }
 
-		[Display(Name = "Секретарь")] public bool IsSecretary { get; set; }
+		public bool IsSecretary { get; set; }
 
-		[Display(Name = "Руководитель дипломных проектов")]
 		public bool IsLecturerHasGraduateStudents { get; set; }
 
-		[Required(ErrorMessage = "Поле Логин обязательно для заполнения")]
-		[Display(Name = "Логин")]
 		public string UserName { get; set; }
 
-		[Required(ErrorMessage = "Поле Пароль обязательно для заполнения")]
-		[StringLength(100, ErrorMessage = "{0} должно быть не менее {2} символов.", MinimumLength = 6)]
-		[DataType(DataType.Password)]
-		[Display(Name = "Пароль")]
 		public string Password { get; set; }
 
-		[DataType(DataType.Password)]
-		[Display(Name = "Подтверждение пароля")]
-		[Required(ErrorMessage = "Поле Подтверждение пароля обязательно для заполнения")]
-		[System.ComponentModel.DataAnnotations.Compare("Password", ErrorMessage =
-			"Пароль и подтвержденный пароль не совпадают.")]
 		public string ConfirmPassword { get; set; }
 
-		[Display(Name = "Группа")]
 		public string Group { get; set; }
 
-		[Display(Name = "Код доступа")]
 		public string Code { get; set; }
 
 		public IList<SelectListItem> GetGroups()
@@ -149,4 +125,33 @@ namespace WebAPI.ViewModels.AccountViewModels
 			new LecturerSearchMethod().AddToIndex(lecturer);
 		}
 	}
+
+    public class RegisterViewModelValidation : AbstractValidator<RegisterViewModel>
+    {
+        public RegisterViewModelValidation()
+        {
+            this.RuleFor(m => m.Name)
+                .MaximumLength(50)
+                .NotEmpty();
+
+            this.RuleFor(m => m.Surname)
+                .MaximumLength(50)
+                .NotEmpty();
+
+            this.RuleFor(m => m.Patronymic)
+                .MaximumLength(50);
+
+            this.RuleFor(m => m.UserName)
+                .NotNull();
+
+            this.RuleFor(m => m.Password)
+                .MaximumLength(100)
+                .MinimumLength(6)
+                .NotNull();
+
+            this.RuleFor(m => m.Password)
+                .NotNull()
+                .Equal(m => m.Password);
+        }
+    }
 }

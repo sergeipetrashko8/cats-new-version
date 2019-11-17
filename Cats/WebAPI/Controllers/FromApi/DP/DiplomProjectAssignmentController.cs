@@ -1,9 +1,10 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class DiplomProjectAssignmentController : ApiRoutedController
     {
         private readonly LazyDependency<IDpManagementService> _dpManagementService =

@@ -6,6 +6,7 @@ using WebAPI.Controllers.Services.Models.Parental;
 
 namespace WebAPI.Controllers.Services.Subjects
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Authorize(Roles = "lector")]
     public class SubjectsServiceController : ApiRoutedController
     {

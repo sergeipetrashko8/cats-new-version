@@ -8,6 +8,7 @@ using WebAPI.Controllers.Services.Models.Parental;
 
 namespace WebAPI.Controllers.Services.Parental
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class ParentalServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IGroupManagementService> groupManagementService =

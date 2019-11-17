@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using Application.Core;
@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class WatchingTimeController : ApiRoutedController
     {
         private readonly LazyDependency<IConceptManagementService> _conceptManagementService =

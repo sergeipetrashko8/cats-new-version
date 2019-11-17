@@ -1,4 +1,4 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.DPManagement;
 using Application.Infrastructure.DTO;
@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class DipomProjectConsultationController : ApiRoutedController
     {
         private readonly LazyDependency<IDpManagementService> _diplomProjectManagementService =

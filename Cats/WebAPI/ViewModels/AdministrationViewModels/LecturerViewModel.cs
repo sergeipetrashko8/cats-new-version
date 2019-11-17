@@ -8,19 +8,14 @@ namespace WebAPI.ViewModels.AdministrationViewModels
 {
     public class LecturerViewModel : BaseNumberedGridItem
     {
-        [DisplayName("Полное имя")]
         public string FullName => $"{LastName} {FirstName} {MiddleName}";
 
-        [DisplayName("Логин")] 
         public string Login { get; set; }
 
-        [DisplayName("Последний вход")]
         public string LastLogin { get; set; }
 
-        [DisplayName("Предметы")]
         public string Subjects { get; set; }
 
-        [DisplayName("Статус")] 
         public string IsActive { get; set; }
         
         private string FirstName { get; set; }
@@ -29,7 +24,6 @@ namespace WebAPI.ViewModels.AdministrationViewModels
 
         private string MiddleName { get; set; }
 
-        [DisplayName("Действие")] 
         public HtmlString HtmlLinks { get; set; }
 
         public int Id { get; set; }

@@ -1,10 +1,11 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Infrastructure.DPManagement;
 using LMP.Models.DP;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class TaskSheetTemplateController : ApiRoutedController
     {
         private readonly LazyDependency<IDpManagementService> diplomProjectManagementService =

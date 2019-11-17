@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class UploadController : ApiRoutedController
     {
         private readonly LazyDependency<IFilesManagementService> _filesManagementService =

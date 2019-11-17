@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using Application.Core;
 using Application.Core.UI.HtmlHelpers;
 using Application.Infrastructure.GroupManagement;
+using FluentValidation;
 using LMP.Models;
 using Microsoft.AspNetCore.Html;
 using Microsoft.AspNetCore.Mvc.Rendering;
@@ -18,24 +17,14 @@ namespace WebAPI.ViewModels.AdministrationViewModels
 
         private IGroupManagementService GroupManagementService => _groupManagementService.Value;
 
-        [DisplayName("Номер")]
-        [MaxLength(10, ErrorMessage = "Длина поля Номер группы не должна превышать 10 символов")]
-        [Required(ErrorMessage = "Поле Номер обязательно для заполнения")]
         public string Name { get; set; }
 
-        [DisplayName("Год поступления")]
-        [Required(ErrorMessage = "Поле Год поступления обязательно для заполнения")]
         public string StartYear { get; set; }
 
-        [DisplayName("Год выпуска")]
-        [Required(ErrorMessage = "Поле Год выпуска обязательно для заполнения")]
-        //todo # [GreaterThan("StartYear", ErrorMessage = "Значение поля Год выпуска должен быть больше Года поступления")]
         public string GraduationYear { get; set; }
 
-        [DisplayName("Количество студентов")]
         public int StudentsCount { get; set; }
 
-        [DisplayName("Действие")]
         public HtmlString HtmlLinks { get; set; }
 
         public int Id { get; set; }
@@ -112,6 +101,23 @@ namespace WebAPI.ViewModels.AdministrationViewModels
                   GraduationYear = GraduationYear,
                   StartYear = StartYear
               };
+        }
+    }
+
+    public class GroupViewModelValidator : AbstractValidator<GroupViewModel>
+    {
+        public GroupViewModelValidator()
+        {
+            this.RuleFor(m => m.StartYear)
+                .NotEmpty();
+
+            this.RuleFor(m => m.GraduationYear)
+                .NotEmpty()
+                .GreaterThan(m => m.StartYear);
+
+            this.RuleFor(m => m.Name)
+                .MaximumLength(10)
+                .NotEmpty();
         }
     }
 }

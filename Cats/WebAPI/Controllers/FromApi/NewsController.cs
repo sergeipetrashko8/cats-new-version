@@ -8,6 +8,7 @@ using WebAPI.ViewModels.SubjectModulesViewModel.ModulesViewModel;
 
 namespace WebAPI.Controllers.FromApi
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class NewsController : ApiRoutedController
     {
         private readonly LazyDependency<ISubjectManagementService> subjectManagementService =

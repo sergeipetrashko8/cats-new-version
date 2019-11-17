@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Globalization;
@@ -21,7 +21,8 @@ using WebAPI.Controllers.Services.Models.Labs;
 
 namespace WebAPI.Controllers.Services.Labs
 {
-	public class LabsServiceController : ApiRoutedController
+    [ApiExplorerSettings(IgnoreApi = true)]
+    public class LabsServiceController : ApiRoutedController
 	{
 		private readonly LazyDependency<IFilesManagementService> filesManagementService =
 			new LazyDependency<IFilesManagementService>();

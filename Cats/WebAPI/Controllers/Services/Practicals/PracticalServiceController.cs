@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -11,6 +11,7 @@ using WebAPI.Controllers.Services.Models.Practicals;
 
 namespace WebAPI.Controllers.Services.Practicals
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class PracticalServiceController : ApiRoutedController
     {
         private readonly LazyDependency<ISubjectManagementService> subjectManagementService =

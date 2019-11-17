@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Linq;
 using Application.Core;
 using Application.Infrastructure.BugManagement;
@@ -8,6 +8,7 @@ using WebAPI.Controllers.Services.Models.BTS;
 
 namespace WebAPI.Controllers.Services.BTS
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     [Authorize(Roles = "student,lector")]
     public class BugsServiceController : ApiRoutedController
     {

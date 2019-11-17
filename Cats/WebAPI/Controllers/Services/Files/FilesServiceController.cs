@@ -8,6 +8,7 @@ using WebAPI.Controllers.Services.Models.Files;
 
 namespace WebAPI.Controllers.Services.Files
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class FilesServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IFilesManagementService> _filesManagementService =

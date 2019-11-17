@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -22,6 +22,7 @@ using WebAPI.Controllers.Services.Models.Practicals;
 
 namespace WebAPI.Controllers.Services
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CoreServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IFilesManagementService> filesManagementService =

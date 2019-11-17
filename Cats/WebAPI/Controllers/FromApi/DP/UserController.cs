@@ -1,9 +1,10 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class UserController : ApiRoutedController
     {
         private readonly LazyDependency<IUserService> userService = new LazyDependency<IUserService>();

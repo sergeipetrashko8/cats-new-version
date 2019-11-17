@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.Services.Search
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class SearchServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IGroupManagementService> _groupRepository =

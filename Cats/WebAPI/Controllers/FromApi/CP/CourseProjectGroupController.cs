@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.CP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CourseProjectGroupController : ApiRoutedController
     {
         private readonly LazyDependency<ICPManagementService> _cpManagementService =

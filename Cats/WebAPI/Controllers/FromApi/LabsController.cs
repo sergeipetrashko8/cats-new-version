@@ -7,6 +7,7 @@ using WebAPI.ViewModels.SubjectModulesViewModel.ModulesViewModel;
 
 namespace WebAPI.Controllers.FromApi
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class LabsController : ApiRoutedController
     {
         private readonly LazyDependency<ISubjectManagementService> _subjectManagementService =

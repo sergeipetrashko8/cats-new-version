@@ -21,7 +21,7 @@ namespace WebAPI.ViewModels.AdministrationViewModels
             InitializeActivity();
         }
 
-        public IUsersManagementService UserManagementService => _userManagementService.Value;
+        private IUsersManagementService UserManagementService => _userManagementService.Value;
 
         public string UserActivityJson { get; set; }
 

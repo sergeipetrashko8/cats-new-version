@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using FluentValidation;
 using LMP.Models;
 
 namespace WebAPI.ViewModels.AdministrationViewModels
@@ -8,7 +8,6 @@ namespace WebAPI.ViewModels.AdministrationViewModels
         public ResetPasswordViewModel(User user)
         {
             FullName = user.Student != null ? user.Student.FullName : user.Lecturer.FullName;
-
             Login = user.UserName;
         }
 
@@ -18,17 +17,10 @@ namespace WebAPI.ViewModels.AdministrationViewModels
 
         public string FullName { get; set; }
 
-        [Required] public string Login { get; set; }
+        public string Login { get; set; }
 
-        [Required(ErrorMessage = "Поле Пароль обязательно для заполнения")]
-        [StringLength(100, ErrorMessage = "Пароль должен быть не менее {2} символов.", MinimumLength = 6)]
-        [DataType(DataType.Password)]
-        [Display(Name = "Новый пароль")]
         public string Password { get; set; }
 
-        [DataType(DataType.Password)]
-        [Display(Name = "Подтверждение пароля")]
-        [Compare("Password", ErrorMessage = "Пароль и подтвержденный пароль не совпадают.")]
         public string ConfirmPassword { get; set; }
 
         public bool ResetPassword()
@@ -38,6 +30,25 @@ namespace WebAPI.ViewModels.AdministrationViewModels
             //var isReseted = WebSecurity.ResetPassword(token, Password);
             //return isReseted;
             return true;
+        }
+    }
+
+    public class ResetPasswordViewModelValidation : AbstractValidator<ResetPasswordViewModel>
+    {
+        public ResetPasswordViewModelValidation()
+        {
+            this.RuleFor(m => m.Password)
+                .MaximumLength(100)
+                .MinimumLength(6)
+                .NotEmpty();
+
+            this.RuleFor(m => m.ConfirmPassword)
+                .Equal(m => m.Password);
+
+            this.RuleFor(m => m.FullName);
+
+            this.RuleFor(m => m.Login)
+                .NotEmpty();
         }
     }
 }

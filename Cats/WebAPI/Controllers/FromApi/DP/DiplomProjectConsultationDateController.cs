@@ -1,10 +1,11 @@
-using System;
+﻿using System;
 using Application.Core;
 using Application.Infrastructure.DPManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class DiplomProjectConsultationDateController : ApiRoutedController
     {
         private readonly LazyDependency<IPercentageGraphService> _percentageService =

@@ -1,9 +1,10 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.CP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CpCorrelationController : ApiRoutedController
     {
         private readonly LazyDependency<ICpCorrelationService> correlationService =

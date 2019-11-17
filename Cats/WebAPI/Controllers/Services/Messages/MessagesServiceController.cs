@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json;
@@ -11,6 +11,7 @@ using WebAPI.Controllers.Services.Models.Messages;
 
 namespace WebAPI.Controllers.Services.Messages
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class MessagesServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IMessageManagementService> _messageManagementService =

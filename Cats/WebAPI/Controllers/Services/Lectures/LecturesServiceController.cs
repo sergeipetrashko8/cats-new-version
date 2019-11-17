@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
@@ -13,6 +13,7 @@ using WebAPI.Controllers.Services.Models.Lectures;
 
 namespace WebAPI.Controllers.Services.Lectures
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class LecturesServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IGroupManagementService> groupManagementService =

@@ -26,7 +26,7 @@ namespace LMP.Data.Infrastructure
 					Password=CaTs12345;
 					MultipleActiveResultSets=False;Encrypt=True;
 					TrustServerCertificate=False;
-					Connection Timeout=30;");
+					Connection Timeout=30000;");
         }
 
         #endregion
@@ -611,6 +611,8 @@ namespace LMP.Data.Infrastructure
 
         #region DbSets
 
+       // public DbSet<LecturesScheduleVisiting> LecturesScheduleVisitings { get; set; }
+
         public DbSet<WatchingTime> WatchingTime { get; set; }
 
         public DbSet<TestQuestionPassResults> TestQuestionPassResults { get; set; }
@@ -623,6 +625,8 @@ namespace LMP.Data.Infrastructure
 
         public DbSet<User> Users { get; set; }
 
+        //public DbSet<SubjectLecturer> SubjectLecturers { get; set; }
+        
         public DbSet<Student> Students { get; set; }
 
         public DbSet<ScoObjects> ScoObjects { get; set; }

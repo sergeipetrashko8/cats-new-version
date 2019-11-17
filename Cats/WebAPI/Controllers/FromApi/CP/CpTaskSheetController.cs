@@ -1,10 +1,11 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Infrastructure.CPManagement;
 using Application.Infrastructure.CTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.CP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CpTaskSheetController : ApiRoutedController
     {
         private readonly LazyDependency<ICPManagementService> _courseProjectManagementService =

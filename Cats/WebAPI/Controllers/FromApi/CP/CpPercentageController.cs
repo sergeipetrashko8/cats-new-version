@@ -1,4 +1,4 @@
-using Application.Core;
+﻿using Application.Core;
 using Application.Core.Data;
 using Application.Infrastructure.CPManagement;
 using Application.Infrastructure.CTO;
@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.CP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CpPercentageController : ApiRoutedController
     {
         private readonly LazyDependency<ICpPercentageGraphService> _percentageService =

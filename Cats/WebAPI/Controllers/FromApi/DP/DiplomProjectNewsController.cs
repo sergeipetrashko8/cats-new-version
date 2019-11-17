@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Application.Core;
 using Application.Infrastructure.DPManagement;
 using LMP.Models.DP;
@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class DiplomProjectNewsController : ApiRoutedController
     {
         private readonly LazyDependency<IDpManagementService> _dpManagementService =

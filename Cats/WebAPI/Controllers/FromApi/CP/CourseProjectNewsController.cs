@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using Application.Core;
 using Application.Infrastructure.CPManagement;
 using LMP.Models.CP;
@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.CP
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class CourseProjectNewsController : ApiRoutedController
     {
         private readonly LazyDependency<ICPManagementService> _cpManagementService =

@@ -7,6 +7,7 @@ using WebAPI.Controllers.Services.Models.Materials;
 
 namespace WebAPI.Controllers.Services.Materials
 {
+    [ApiExplorerSettings(IgnoreApi = true)]
     public class MaterialsServiceController : ApiRoutedController
     {
         private readonly LazyDependency<IMaterialsManagementService> _materialsManagementService =

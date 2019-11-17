@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -17,7 +17,8 @@ using WebAPI.Controllers.Services.Models.Parental;
 
 namespace WebAPI.Controllers.Services.Concept
 {
-	public class ConceptServiceController : ApiRoutedController
+    [ApiExplorerSettings(IgnoreApi = true)]
+    public class ConceptServiceController : ApiRoutedController
 	{
 		private const string SuccessMessage = "Операция выполнена успешно";
 
