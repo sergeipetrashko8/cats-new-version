@@ -611,7 +611,7 @@ namespace LMP.Data.Infrastructure
 
         #region DbSets
 
-       // public DbSet<LecturesScheduleVisiting> LecturesScheduleVisitings { get; set; }
+        public DbSet<LecturesScheduleVisiting> LecturesScheduleVisitings { get; set; }
 
         public DbSet<WatchingTime> WatchingTime { get; set; }
 
@@ -625,7 +625,7 @@ namespace LMP.Data.Infrastructure
 
         public DbSet<User> Users { get; set; }
 
-        //public DbSet<SubjectLecturer> SubjectLecturers { get; set; }
+        public DbSet<SubjectLecturer> SubjectLecturers { get; set; }
         
         public DbSet<Student> Students { get; set; }
 

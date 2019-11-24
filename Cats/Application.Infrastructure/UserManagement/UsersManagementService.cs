@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -203,7 +203,7 @@ namespace Application.Infrastructure.UserManagement
             var query = new Query<User>();
             if (includeRole)
             {
-                query.Include(u => u.Membership.Roles);
+                query.Include(u => u.Membership.Roles.Select(r => r.Role));
             }
 
             return UsersRepository.GetAll(query).ToList();
