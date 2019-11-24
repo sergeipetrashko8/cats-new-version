@@ -8,7 +8,6 @@ using WebAPI.ViewModels.SubjectModulesViewModel.ModulesViewModel;
 
 namespace WebAPI.Controllers.FromApi
 {
-    [ApiExplorerSettings(IgnoreApi = true)]
     public class NewsController : ApiRoutedController
     {
         private readonly LazyDependency<ISubjectManagementService> subjectManagementService =
@@ -16,6 +15,9 @@ namespace WebAPI.Controllers.FromApi
 
         public ISubjectManagementService SubjectManagementService => subjectManagementService.Value;
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet]
         public IActionResult GetNews(int subjectId)
         {
@@ -32,6 +34,9 @@ namespace WebAPI.Controllers.FromApi
             }
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpPost]
         public IActionResult Save(SubjectNews model)
         {
@@ -47,6 +52,9 @@ namespace WebAPI.Controllers.FromApi
             }
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpDelete]
         public IActionResult Delete(SubjectNews deleteData)
         {

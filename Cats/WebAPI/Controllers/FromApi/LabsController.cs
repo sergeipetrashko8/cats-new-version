@@ -7,7 +7,6 @@ using WebAPI.ViewModels.SubjectModulesViewModel.ModulesViewModel;
 
 namespace WebAPI.Controllers.FromApi
 {
-    [ApiExplorerSettings(IgnoreApi = true)]
     public class LabsController : ApiRoutedController
     {
         private readonly LazyDependency<ISubjectManagementService> _subjectManagementService =
@@ -15,6 +14,9 @@ namespace WebAPI.Controllers.FromApi
 
         public ISubjectManagementService SubjectManagementService => _subjectManagementService.Value;
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet]
         public IActionResult GetLabs(int subjectId)
         {

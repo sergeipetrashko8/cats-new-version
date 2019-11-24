@@ -14,7 +14,10 @@ namespace Application.Infrastructure.DPManagement
 
         public UserData GetUserInfo(int userId)
         {
-            var user = Context.Users.Include(x => x.Student).Include(x => x.Lecturer).Single(x => x.Id == userId);
+            var student = Context.Users.Include(x => x.Student).SingleOrDefault(x => x.Id == userId);
+	        var lecturer = Context.Users.Include(x => x.Lecturer).SingleOrDefault(x => x.Id == userId);
+
+	        var user = student ?? lecturer;
 
             return new UserData
             {

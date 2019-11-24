@@ -39,6 +39,9 @@ namespace WebAPI.Controllers.FromApi
             return temp.Id;
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet("{id:int}")]
         public IActionResult Get(int id)
         {
@@ -93,6 +96,9 @@ namespace WebAPI.Controllers.FromApi
         //{
         //}
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpPut("{id:int}")]
         public void Put(int id)
         {

@@ -25,6 +25,9 @@ namespace WebAPI.Controllers.FromApi
 
         #region UploadController Members
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpDelete("DeleteFiles")]
         public IActionResult DeleteFiles(string filename)
         {
@@ -34,6 +37,9 @@ namespace WebAPI.Controllers.FromApi
             return Ok();
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet("DownloadFile")]
         public IActionResult DownloadFile(string fileName)
         {
@@ -42,12 +48,18 @@ namespace WebAPI.Controllers.FromApi
             return BadRequest();
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet("GetUploadedFiles")]
         public IActionResult GetUploadedFiles(string values, string deleteValues)
         {
             return !string.IsNullOrEmpty(values) ? _GetUploadedFiles(values, deleteValues) : BadRequest();
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpPost("UploadFiles")]
         public IActionResult UploadFiles()
         {

@@ -5,7 +5,6 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers.FromApi.DP
 {
-    [ApiExplorerSettings(IgnoreApi = true)]
     public class StudentController : ApiRoutedController
     {
         private readonly LazyDependency<IDpManagementService> dpManagementService =
@@ -13,6 +12,9 @@ namespace WebAPI.Controllers.FromApi.DP
 
         private IDpManagementService DpManagementService => dpManagementService.Value;
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet]
         public IActionResult Get([ModelBinder] GetPagedListParams parms)
         {

@@ -102,8 +102,13 @@ namespace Application.Infrastructure.UserManagement
 
         public User GetUser(int id)
         {
-            return UsersRepository.GetBy(new Query<User>(u => u.Id == id)
-                .Include(u => u.Student).Include(u => u.Lecturer).Include(u => u.Membership.Roles));
+	        var studentQuery = new Query<User>(u => u.Id == id).Include(u => u.Membership.Roles).Include(m => m.Student);
+            var lecturerQuery = new Query<User>(u => u.Id == id).Include(u => u.Membership.Roles).Include(m => m.Lecturer);
+
+            var student =  UsersRepository.GetBy(studentQuery);
+            var lecturer =  UsersRepository.GetBy(lecturerQuery);
+
+            return student ?? lecturer;
         }
 
         public bool IsExistsUser(string userName)

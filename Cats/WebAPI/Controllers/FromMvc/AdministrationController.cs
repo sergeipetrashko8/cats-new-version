@@ -160,6 +160,9 @@ namespace WebAPI.Controllers.FromMvc
         ///     Not tested
         /// </summary>
         [HttpPost("AddGroup")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult AddGroupJson(GroupViewModel model)
         {
             try
@@ -198,6 +201,9 @@ namespace WebAPI.Controllers.FromMvc
         ///     Not tested
         /// </summary>
         [HttpPost("SaveGroup")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult SaveGroupJson(GroupViewModel model)
         {
             try
@@ -212,7 +218,7 @@ namespace WebAPI.Controllers.FromMvc
         }
 
         /// <summary>
-        ///     Fail
+        ///      Ok
         /// </summary>
         [HttpGet("Professors")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
@@ -246,6 +252,9 @@ namespace WebAPI.Controllers.FromMvc
         /// </summary>
         [ApiExplorerSettings(IgnoreApi = true)]
         [HttpGet("Subjects/{id:int}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult GetSubjectsJson(int id)
         {
             var subjects = SubjectManagementService.GetSubjectsByStudent(id).OrderBy(subject => subject.Name).ToList();
@@ -264,6 +273,8 @@ namespace WebAPI.Controllers.FromMvc
         ///     Fail due ef Include
         /// </summary>
         [HttpGet("GetResetPasswordModel/{id:int}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult GetResetPasswordModelJson(int id)
         {
             try
@@ -284,6 +295,9 @@ namespace WebAPI.Controllers.FromMvc
         ///     Not tested
         /// </summary>
         [HttpPost("ResetPassword")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.Conflict)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult ResetPasswordJson(ResetPasswordViewModel model)
         {
             var resetResult = model.ResetPassword();
@@ -297,6 +311,9 @@ namespace WebAPI.Controllers.FromMvc
         ///     Not tested
         /// </summary>
         [HttpDelete("DeleteUser/{id:int}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult DeleteUserJson(int id)
         {
             try
@@ -314,9 +331,12 @@ namespace WebAPI.Controllers.FromMvc
         }
 
         /// <summary>
-        ///     Failed due ef Include
+        ///     Ok
         /// </summary>
         [HttpGet("Attendance/{id:int}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [ProducesResponseType((int)HttpStatusCode.InternalServerError)]
         public IActionResult AttendanceJson(int id)
         {
             var user = UsersManagementService.GetUser(id);

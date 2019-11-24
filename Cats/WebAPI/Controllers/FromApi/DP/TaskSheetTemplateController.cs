@@ -13,6 +13,9 @@ namespace WebAPI.Controllers.FromApi.DP
 
         private IDpManagementService DpManagementService => diplomProjectManagementService.Value;
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpGet("{templateId:int}")]
         public IActionResult Get(int templateId)
         {
@@ -20,6 +23,9 @@ namespace WebAPI.Controllers.FromApi.DP
             return Ok(result);
         }
 
+        /// <summary>
+        ///     Not tested
+        /// </summary>
         [HttpPost]
         public IActionResult Post([FromBody] DiplomProjectTaskSheetTemplate template)
         {

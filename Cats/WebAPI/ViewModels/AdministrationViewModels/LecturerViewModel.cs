@@ -41,7 +41,7 @@ namespace WebAPI.ViewModels.AdministrationViewModels
                 IsActive = lecturer.IsActive ? "" : "Удален",
                 LastLogin = lecturer.User.LastLogin.HasValue ? lecturer.User.LastLogin.ToString() : "-",
                 Subjects = lecturer.SubjectLecturers != null && lecturer.SubjectLecturers.Count > 0 &&
-                           lecturer.SubjectLecturers.Any(e => !e.Subject.IsArchive)
+                           lecturer.SubjectLecturers.Any(e => !e.Subject?.IsArchive ?? false)
                     ? lecturer.SubjectLecturers.Count(e => !e.Subject.IsArchive).ToString()
                     : "-"
             };
